@@ -1,18 +1,31 @@
 package in.javahome.springmvc.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Register {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "REG_ID")
+	private Integer regId;
+	@Column(name = "FULL_NAME")
 	private String fullName;
+	@Column(name = "MAIL")
 	private String mail;
+	@Column(name = "PASSWORD")
 	private String password;
 	
-	private Address addr = new Address();
-	
-	public Address getAddr() {
-		return addr;
+	public Integer getRegId() {
+		return regId;
 	}
-	public void setAddr(Address addr) {
-		this.addr = addr;
+	public void setRegId(Integer regId) {
+		this.regId = regId;
 	}
 	public String getFullName() {
 		return fullName;

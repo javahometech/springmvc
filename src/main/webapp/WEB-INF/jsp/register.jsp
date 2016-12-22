@@ -6,10 +6,9 @@
 	<form:form action="register.htm" commandName="reg">
 		Name: <form:input path="fullName"/>
 		Email: <form:input path="mail"/>
-		City:  <form:input path="addr.city"/>
-		Pin:  <form:input path="addr.pin"/>
 		Password: <form:password path="password"/>
 		<input type="submit" value="Sign Up`">
+		<%= request.getAttribute("error") %>
 	</form:form>
 </body>
 </html>
