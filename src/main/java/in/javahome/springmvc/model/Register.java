@@ -6,6 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table
@@ -15,10 +20,15 @@ public class Register {
 	@Column(name = "REG_ID")
 	private Integer regId;
 	@Column(name = "FULL_NAME")
+	@Length(min=4,max=10,message="Name should be min 4 and max 10")
+	@NotNull(message="Full Name is mandatory")
 	private String fullName;
+	@NotEmpty(message="Email is mandatory")
+	@Email(message="Not a valid email")
 	@Column(name = "MAIL")
 	private String mail;
 	@Column(name = "PASSWORD")
+	@NotEmpty(message="Password is mandatory")
 	private String password;
 	
 	public Integer getRegId() {
