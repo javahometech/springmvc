@@ -4,11 +4,7 @@ pipeline{
         maven 'maven3'
     }
     stages{
-        stage('Git Checkout'){
-           steps{
-                git credentialsId: 'github', url: 'https://github.com/javahometech/springmvc'
-           }
-        }
+
         stage('Maven Build'){
             steps{
                 sh 'mvn clean package'
