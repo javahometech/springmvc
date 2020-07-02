@@ -11,6 +11,11 @@ pipeline{
                 sh 'mvn clean package'
             }
         }
+        stage('Demo Task'){
+            steps{
+                echo "Test task "
+            }
+        }
         stage('Tomcat Deploy'){
             steps{
                 library 'javahome-libs'
